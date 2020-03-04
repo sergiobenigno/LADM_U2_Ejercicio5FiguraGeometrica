@@ -11,6 +11,8 @@ class FiguraGeometrica () {
     var radio = 0f
     var ancho = 0f
     var alto = 0f
+    var incX = 5
+    var incY = 5
 
     constructor(x:Int, y:Int, radio:Int) : this(){
         this.x = x.toFloat()
@@ -68,14 +70,21 @@ class FiguraGeometrica () {
                 y = event.y - (alto/2)
             }
         }
+
     }
 
-    /*
-    1. variables x y (usar varios constructores)
-    2. variable para el tipo de figura 1 = circulo 2 = cuadrado / rect
-    3. método para dibujar / pintar
-    4. método determinar si está o no está en AREA
-    5. método para arrastrar
-     */
+    fun rebote(ancho:Int, alto:Int){
+        x+= incX
+        if(x<=-100 || x>=ancho){
+            incX *= -1
+        }
+        y+= incY
+        if(y<=-100 || y>=alto){
+            incY *= -1
+        }
+
+    }
+
+
 
 }
